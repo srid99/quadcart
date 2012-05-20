@@ -3,12 +3,15 @@ package org.neenaan.quadcart.selenium.conf;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 
 public class SeleniumConfiguration {
 
-    private final static String[] BROWSER_COMMAND_KEYS = { "username" , "os" , "browser" , "browser-version" };
+    private final static String[] BROWSER_COMMAND_KEYS = { "username" , "os" , "browser" , "browser-version" , "access-key" };
 
     private final String host;
     private final int port;
@@ -31,33 +34,26 @@ public class SeleniumConfiguration {
         final Properties props = new Properties();
         try {
             props.load( SeleniumDriver.class.getClassLoader().getResourceAsStream( "selenium.properties" ) );
+            props.putAll( System.getProperties() );
         }
         catch ( final IOException e ) {
-            e.printStackTrace();
+            // do nothing
         }
         return props;
     }
 
     private String getBrowserCommand( final String testCaseName , final Properties props ) {
-        final StringBuilder command = new StringBuilder( "{" );
-        for ( final String key : BROWSER_COMMAND_KEYS ) {
-            command.append( jsonPair( key, props.getProperty( key ) ) ).append( "," );
+        final JSONObject json = new JSONObject();
+        try {
+            for ( final String key : BROWSER_COMMAND_KEYS ) {
+                json.put( key, props.getProperty( key ) );
+            }
+            json.put( "name", testCaseName );
         }
-        command.append( jsonPair( "access-key", getAccessKeyValue() ) ).append( "," );
-        return command.append( jsonPair( "name", testCaseName ) ).append( "}" ).toString();
-    }
-
-    private String getAccessKeyValue() {
-        final String value = System.getProperty( "access-key" );
-        return value == null ? System.getenv( "access-key" ) : value;
-    }
-
-    private String jsonPair( final String key , final String value ) {
-        return quotes( key ) + ":" + quotes( value );
-    }
-
-    private String quotes( final String value ) {
-        return "\"" + value + "\"";
+        catch ( final JSONException e ) {
+            // do nothing
+        }
+        return json.toString();
     }
 
 }

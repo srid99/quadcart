@@ -12,7 +12,7 @@ public class HealthCheckTest {
 			.create("Health check for Quadcart application");
 
 	@Test
-	public void testSauce() throws Exception {
+	public void testApplicationLoaded() throws Exception {
 		HealthCheckTest.SELENIUM.open("/");
 		assertEquals(0,
 				HealthCheckTest.SELENIUM.getBodyText().indexOf("Hello World!"));

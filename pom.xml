@@ -9,6 +9,14 @@
 	<description>Quardcart a simple cart application built in java.</description>
 	<modules>
 		<module>quadcart-web</module>
-		<module>quadcart-selenium</module>
 	</modules>
+
+	<profiles>
+		<profile>
+			<id>selenium</id>
+			<modules>
+				<module>quadcart-selenium</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>

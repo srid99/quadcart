@@ -1,23 +1,16 @@
 package org.neenaan.quadcart.selenium;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.AfterClass;
 import org.junit.Test;
 
-import com.thoughtworks.selenium.DefaultSelenium;
-
-public class HealthCheckTest {
-    private static DefaultSelenium SELENIUM = SauceLabsConfiguration.create( "Health check for Quadcart application" );
+public class HealthCheckTest extends SeleniumTestCase {
 
     @Test
+    @SeleniumTest( "Health check for quadcart application" )
     public void testApplicationLoaded() throws Exception{
-        HealthCheckTest.SELENIUM.open( "/" );
-        assertEquals( 0, HealthCheckTest.SELENIUM.getBodyText().indexOf( "Hello World!" ) );
+        selenium().open( "/" );
+        assertTrue( "Content \"Hello world\" not found", selenium().getBodyText().indexOf( "Hello World!" ) != -1 );
     }
 
-    @AfterClass
-    public static void after() throws Exception{
-        HealthCheckTest.SELENIUM.stop();
-    }
 }

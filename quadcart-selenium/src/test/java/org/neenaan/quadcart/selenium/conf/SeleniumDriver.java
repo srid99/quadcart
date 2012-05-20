@@ -1,4 +1,4 @@
-package org.neenaan.quadcart.selenium;
+package org.neenaan.quadcart.selenium.conf;
 
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;

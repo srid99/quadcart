@@ -1,4 +1,4 @@
-package org.neenaan.quadcart.selenium;
+package org.neenaan.quadcart.selenium.conf;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

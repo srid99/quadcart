@@ -1,4 +1,4 @@
-package org.neenaan.quadcart.selenium;
+package org.neenaan.quadcart.selenium.conf;
 
 import java.io.IOException;
 import java.util.Properties;

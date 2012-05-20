@@ -7,19 +7,19 @@ import org.junit.Test;
 
 import com.thoughtworks.selenium.DefaultSelenium;
 
-public class HealthCheck {
+public class HealthCheckTest {
 	private static DefaultSelenium SELENIUM = SauceLabsConfiguration
 			.create("Health check for Quadcart application");
 
 	@Test
 	public void testSauce() throws Exception {
-		HealthCheck.SELENIUM.open("/");
+		HealthCheckTest.SELENIUM.open("/");
 		assertEquals(0,
-				HealthCheck.SELENIUM.getBodyText().indexOf("Hello World!"));
+				HealthCheckTest.SELENIUM.getBodyText().indexOf("Hello World!"));
 	}
 
 	@AfterClass
 	public static void after() throws Exception {
-		HealthCheck.SELENIUM.stop();
+		HealthCheckTest.SELENIUM.stop();
 	}
 }

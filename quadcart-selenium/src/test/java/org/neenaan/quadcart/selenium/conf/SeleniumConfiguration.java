@@ -41,13 +41,13 @@ public class SeleniumConfiguration {
     private String getBrowserCommand( final String testCaseName , final Properties props ){
         final StringBuilder command = new StringBuilder( "{" );
         for ( final String key : BROWSER_COMMAND_KEYS ) {
-            command.append( keyValuePair( props, key ) ).append( "," );
+            command.append( jsonPair( key, props.getProperty( key ) ) ).append( "," );
         }
-        return command.append( quotes( "name" ) ).append( ":" ).append( quotes( testCaseName ) ).append( "}" ).toString();
+        return command.append( jsonPair( "name", testCaseName ) ).append( "}" ).toString();
     }
 
-    private String keyValuePair( final Properties props , final String key ){
-        return quotes( key ) + ":" + quotes( props.getProperty( key ) );
+    private String jsonPair( final String key , final String value ){
+        return quotes( key ) + ":" + quotes( value );
     }
 
     private String quotes( final String value ){

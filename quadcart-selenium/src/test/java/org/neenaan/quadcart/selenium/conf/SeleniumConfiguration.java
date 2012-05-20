@@ -43,8 +43,13 @@ public class SeleniumConfiguration {
         for ( final String key : BROWSER_COMMAND_KEYS ) {
             command.append( jsonPair( key, props.getProperty( key ) ) ).append( "," );
         }
-        command.append( jsonPair( "access-key", System.getenv( "access-key" ) ) ).append( "," );
+        command.append( jsonPair( "access-key", getAccessKey() ) ).append( "," );
         return command.append( jsonPair( "name", testCaseName ) ).append( "}" ).toString();
+    }
+
+    private String getAccessKey(){
+        final String key = System.getProperty( "access-key" );
+        return key == null ? System.getenv( "access-key" ) : key;
     }
 
     private String jsonPair( final String key , final String value ){

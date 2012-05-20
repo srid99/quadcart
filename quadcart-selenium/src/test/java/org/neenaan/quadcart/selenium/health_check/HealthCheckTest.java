@@ -13,4 +13,12 @@ public class HealthCheckTest extends SeleniumTestCase {
         assertContent( "Hello World!" );
     }
 
+    @Test
+    @SeleniumTest( "Sales page loaded" )
+    public void testSalesPage() {
+        open( "/sales/new.html" );
+        assertTitle( "QuadCart" );
+        assertContent( "Product Results" );
+    }
+
 }

@@ -8,7 +8,7 @@ public class HealthCheckTest extends SeleniumTestCase {
 
     @Test
     @SeleniumTest( "Health check for quadcart application" )
-    public void testApplicationLoaded(){
+    public void testApplicationLoaded() {
         open( "/" );
         assertContent( "Hello World!" );
     }

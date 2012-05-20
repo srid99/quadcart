@@ -23,11 +23,11 @@ public class SeleniumConfiguration {
         url = props.getProperty( "application.url" );
     }
 
-    public Selenium getSelenium(){
+    public Selenium getSelenium() {
         return new DefaultSelenium( host , port , browserCommand , url );
     }
 
-    private Properties loadSeleniumProperties(){
+    private Properties loadSeleniumProperties() {
         final Properties props = new Properties();
         try {
             props.load( SeleniumDriver.class.getClassLoader().getResourceAsStream( "selenium.properties" ) );
@@ -38,25 +38,25 @@ public class SeleniumConfiguration {
         return props;
     }
 
-    private String getBrowserCommand( final String testCaseName , final Properties props ){
+    private String getBrowserCommand( final String testCaseName , final Properties props ) {
         final StringBuilder command = new StringBuilder( "{" );
         for ( final String key : BROWSER_COMMAND_KEYS ) {
             command.append( jsonPair( key, props.getProperty( key ) ) ).append( "," );
         }
-        command.append( jsonPair( "access-key", getAccessKey() ) ).append( "," );
+        command.append( jsonPair( "access-key", getAccessKeyValue() ) ).append( "," );
         return command.append( jsonPair( "name", testCaseName ) ).append( "}" ).toString();
     }
 
-    private String getAccessKey(){
-        final String key = System.getProperty( "access-key" );
-        return key == null ? System.getenv( "access-key" ) : key;
+    private String getAccessKeyValue() {
+        final String value = System.getProperty( "access-key" );
+        return value == null ? System.getenv( "access-key" ) : value;
     }
 
-    private String jsonPair( final String key , final String value ){
+    private String jsonPair( final String key , final String value ) {
         return quotes( key ) + ":" + quotes( value );
     }
 
-    private String quotes( final String value ){
+    private String quotes( final String value ) {
         return "\"" + value + "\"";
     }
 

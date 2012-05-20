@@ -11,19 +11,19 @@ public class SeleniumTestCase {
     @Rule
     public final SeleniumDriver driver = new SeleniumDriver();
 
-    public void open( final String url ){
+    public void open( final String url ) {
         selenium().open( url );
     }
 
-    public void assertContent( final String content ){
+    public void assertContent( final String content ) {
         assertTrue( "Content \"" + content + "\" not found", contentPresent( content ) );
     }
 
-    private Selenium selenium(){
+    private Selenium selenium() {
         return driver.getSelenium();
     }
 
-    private boolean contentPresent( final String content ){
+    private boolean contentPresent( final String content ) {
         return selenium().getBodyText().indexOf( content ) != -1;
     }
 }

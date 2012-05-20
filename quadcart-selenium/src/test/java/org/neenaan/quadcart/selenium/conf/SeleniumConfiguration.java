@@ -8,7 +8,7 @@ import com.thoughtworks.selenium.Selenium;
 
 public class SeleniumConfiguration {
 
-    private final static String[] BROWSER_COMMAND_KEYS = { "username" , "access-key" , "os" , "browser" , "browser-version" };
+    private final static String[] BROWSER_COMMAND_KEYS = { "username" , "os" , "browser" , "browser-version" };
 
     private final String host;
     private final int port;
@@ -43,6 +43,7 @@ public class SeleniumConfiguration {
         for ( final String key : BROWSER_COMMAND_KEYS ) {
             command.append( jsonPair( key, props.getProperty( key ) ) ).append( "," );
         }
+        command.append( jsonPair( "access-key", System.getenv( "access-key" ) ) ).append( "," );
         return command.append( jsonPair( "name", testCaseName ) ).append( "}" ).toString();
     }
 

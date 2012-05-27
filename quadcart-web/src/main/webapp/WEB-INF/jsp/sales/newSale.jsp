@@ -6,10 +6,10 @@
 		<div id="resultsPane" >
 			<div >
 				<div >
-					Product name |
-					Manufacturer |
-					0.0 |
-					<input type="button" value="add" />
+				 <c:forEach items="${products}" var="product">
+				 ${product.productId} | ${product.manufacturer.name} | ${product.price} 
+				 </c:forEach>
+				<input type="button" value="add" />
 				</div>
 			</div>
 		</div>

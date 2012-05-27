@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention( RetentionPolicy.RUNTIME )
 @Target( ElementType.METHOD )
 public @interface SeleniumTest {
-    String value() default "Default test case";
+    String value();
 }

@@ -10,7 +10,7 @@ public final class SeleniumDriver extends TestWatcher {
     private Selenium selenium;
 
     @Override
-    protected void starting( final Description description ){
+    protected void starting( final Description description ) {
         final SeleniumTest seleniumTest = description.getAnnotation( SeleniumTest.class );
         if ( seleniumTest != null ) {
             selenium = new SeleniumConfiguration( seleniumTest.value() ).getSelenium();
@@ -19,14 +19,14 @@ public final class SeleniumDriver extends TestWatcher {
     }
 
     @Override
-    protected void finished( Description description ){
+    protected void finished( Description description ) {
         if ( selenium != null ) {
             selenium.stop();
             selenium = null;
         }
     }
 
-    public Selenium getSelenium(){
+    public Selenium getSelenium() {
         if ( selenium == null ) {
             throw new IllegalStateException( "No @" + SeleniumTest.class.getSimpleName() + " configured for this test case." );
         }

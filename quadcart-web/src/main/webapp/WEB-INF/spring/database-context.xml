@@ -8,7 +8,7 @@
 
 	<jpa:repositories base-package="org.neenaan.quadcart.data.jpa.repository" />
 
-	<jdbc:embedded-database id="dataSource" type="HSQL" />
+	<jdbc:embedded-database id="dataSource" type="H2" />
 
 	<jdbc:initialize-database data-source="dataSource">
 		<jdbc:script location="classpath:schema.sql" />

@@ -4,12 +4,13 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
 
-    <!-- Main layout -->
-    <definition name="base.template" template="/WEB-INF/jsp/common/mainLayout.jsp">
-     	<put-attribute name="commonIncludes" value="/WEB-INF/jsp/common/commonIncludes.jsp" />
-        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
-        <put-attribute name="body" value="/WEB-INF/jsp/common/blank.jsp" />
-    </definition>
-    
+	<!-- Main layout -->
+	<definition name="base.template" template="/WEB-INF/jsp/common/mainLayout.jsp">
+		<put-attribute name="commonIncludes"
+			value="/WEB-INF/jsp/common/commonIncludes.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/common/blank.jsp" />
+	</definition>
+
 </tiles-definitions>

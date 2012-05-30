@@ -9,27 +9,28 @@ import javax.persistence.Entity;
 
 @Entity
 public class Manufacturer {
-    
+
     @Id
     @Column( name = "manufacturer_id" )
     @GeneratedValue( strategy = GenerationType.AUTO )
     private Long manufacturerId;
+
     @Column( name = "name" )
     private String name;
 
-    public Long getManufacturerId(){
+    public Long getManufacturerId() {
         return manufacturerId;
     }
 
-    public void setManufacturerId( Long manufacturerId ){
+    public void setManufacturerId( final Long manufacturerId ) {
         this.manufacturerId = manufacturerId;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName( String name ){
+    public void setName( final String name ) {
         this.name = name;
     }
 

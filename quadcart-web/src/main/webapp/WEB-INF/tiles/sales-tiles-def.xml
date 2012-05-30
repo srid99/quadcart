@@ -4,9 +4,9 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
 
-    <!-- New Sale -->
-    <definition name="sales/new" extends="base.template">
-        <put-attribute name="body" value="/WEB-INF/jsp/sales/newSale.jsp" />
-    </definition>
-    
+	<!-- New Sale -->
+	<definition name="sales/new" extends="base.template">
+		<put-attribute name="body" value="/WEB-INF/jsp/sales/newSale.jsp" />
+	</definition>
+
 </tiles-definitions>

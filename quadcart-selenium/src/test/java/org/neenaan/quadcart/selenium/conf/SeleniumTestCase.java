@@ -17,7 +17,7 @@ public class SeleniumTestCase {
     }
 
     public void assertContent( final String content ) {
-        assertTrue( "Content \"" + content + "\" not found", contentPresent( content ) );
+        assertTrue( "Content \"" + content + "\" not found", isContentPresent( content ) );
     }
 
     public void assertTitle( final String title ) {
@@ -28,7 +28,7 @@ public class SeleniumTestCase {
         return driver.getSelenium();
     }
 
-    private boolean contentPresent( final String content ) {
-        return selenium().getBodyText().indexOf( content ) != -1;
+    private boolean isContentPresent( final String content ) {
+        return selenium().getBodyText().contains( content );
     }
 }

@@ -9,6 +9,6 @@
 	<context:component-scan base-package="org.neenaan.quadcart" />
 
 	<import resource="webmvc-context.xml" />
-	<import resource="repository-context.xml" />
+	<import resource="database-context.xml" />
 
 </beans>

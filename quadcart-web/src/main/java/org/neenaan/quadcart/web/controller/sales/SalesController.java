@@ -1,6 +1,6 @@
 package org.neenaan.quadcart.web.controller.sales;
 
-import org.neenaan.quadcart.data.jpa.repository.ProductRepository;
+import org.neenaan.quadcart.bussiness.ProductBO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,17 @@ public class SalesController {
 
     private static final Logger LOG = LoggerFactory.getLogger( SalesController.class );
 
+    private final ProductBO productBO;
+
     @Autowired
-    private ProductRepository productRepository;
+    public SalesController(final ProductBO productBO) {
+        this.productBO = productBO;
+    }
 
     @RequestMapping( value = "/sales/new", method = RequestMethod.GET )
     public void listProducts( final Model model ) {
         LOG.debug( "List the product details" );
-        model.addAttribute( "products", productRepository.findAll() );
+        model.addAttribute( "products", productBO.getProducts() );
     }
 
 }

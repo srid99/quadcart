@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<jpa:repositories base-package="org.neenaan.quadcart.data.jpa.repository" />
+	<jpa:repositories base-package="org.neenaan.quadcart.data.jpa.repository"
+		entity-manager-factory-ref="entityManagerFactory" />
 
 	<jdbc:embedded-database id="dataSource" type="H2" />
 
@@ -15,37 +17,19 @@
 		<jdbc:script location="classpath:import.sql" />
 	</jdbc:initialize-database>
 
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
-	<bean
-		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceXmlLocation" value="classpath*:persistence.xml" />
 		<property name="persistenceUnitName" value="quadcart-jpa" />
-		<property name="jpaDialect">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
-		</property>
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-		</property>
-		<property name="jpaProperties" ref="hibernateProperties" />
-	</bean>
-
-	<bean id="hibernateProperties"
-		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-		<property name="properties">
-			<props>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-			</props>
 		</property>
 	</bean>
 

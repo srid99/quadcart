@@ -24,5 +24,11 @@ public class ProductBOImpl implements ProductBO {
     public List<Product> getProducts() {
         return productRepository.findAll();
     }
+    
+    @Transactional( readOnly = true )
+    @Override
+    public List<Product> searchProducts( String queryText ){
+        return productRepository.searchByDescription( queryText );
+    }
 
 }

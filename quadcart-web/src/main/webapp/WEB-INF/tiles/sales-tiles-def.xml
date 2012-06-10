@@ -8,5 +8,7 @@
 	<definition name="sales/new" extends="base.template">
 		<put-attribute name="body" value="/WEB-INF/jsp/sales/newSale.jsp" />
 	</definition>
+	
+	<definition name="sales/searchproduct" template="/WEB-INF/jsp/sales/productSearchResult.jsp" />
 
 </tiles-definitions>

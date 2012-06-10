@@ -5,7 +5,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="org.neenaan.quadcart" level="DEBUG" />
+	<logger name="org.neenaan.quadcart" level="TRACE" />
 
 	<root level="WARN">
 		<appender-ref ref="STDOUT" />

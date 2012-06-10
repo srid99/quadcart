@@ -23,7 +23,7 @@ public class SalesController {
 
     @RequestMapping( value = "/sales/new", method = RequestMethod.GET )
     public void listProducts( final Model model ) {
-        LOG.debug( "List the product details" );
+        LOG.trace( "List the product details" );
         model.addAttribute( "products", productBO.getProducts() );
     }
 

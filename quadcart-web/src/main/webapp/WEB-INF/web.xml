@@ -20,6 +20,13 @@
         </param-value>
     </context-param>
 
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<trim-directive-whitespaces>true</trim-directive-whitespaces>
+		</jsp-property-group>
+	</jsp-config>
+
     <filter>
         <filter-name>encoding-filter</filter-name>
         <filter-class>

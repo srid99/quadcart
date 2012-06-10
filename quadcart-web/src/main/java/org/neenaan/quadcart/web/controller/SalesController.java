@@ -1,4 +1,4 @@
-package org.neenaan.quadcart.web.controller.sales;
+package org.neenaan.quadcart.web.controller;
 
 import java.util.List;
 import org.neenaan.quadcart.bussiness.ProductBO;

@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<jpa:repositories base-package="org.neenaan.quadcart.data.jpa.repository"
+	<jpa:repositories base-package="org.neenaan.quadcart.data.repository"
 		entity-manager-factory-ref="entityManagerFactory" />
 
 	<jdbc:embedded-database id="dataSource" type="H2" />

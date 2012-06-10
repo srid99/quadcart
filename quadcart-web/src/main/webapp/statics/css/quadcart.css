@@ -17,6 +17,10 @@ body {
 	color: #333;
 }
 
+li {
+	list-style: none;
+}
+
 #wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -98,16 +102,16 @@ body {
 	float: left;
 	margin: 2px 0 0 20px;
 	padding: 2px 10px 2px 10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
 	box-shadow: 0 1px 0 #d0d0d0, inset 0 1px 0 #e0e0e0;
 	list-style: none;
 }
 
 #menu-links a {
-	color: #888;
+	color: #136982;
 	text-decoration: none;
 }
 
@@ -120,7 +124,7 @@ img {
 }
 
 a {
-	color: #4183c4;
+	color: #666;
 	text-decoration: none;
 }
 
@@ -132,34 +136,157 @@ a:active {
 	outline: none;
 }
 
-a.button, a.button:visited, .button input, input[type="submit"] {
-    font-size: 10px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: #fff;
-    background-color: #fd6512;
-    display: block;
-    padding: 5px 10px 5px 17px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: background 0.15s linear;
-    -moz-transition: background 0.15s linear;
-    -o-transition: background 0.15s linear;
-    transition: background 0.15s linear;
+#outer-wrapper {
+	padding-top: 10px;
+	height: 550px;
 }
 
-a.button:hover, a.button:focus, .button input:hover, .button input:focus {
-    text-decoration: none;
-    background-color: #d0520e;
-    cursor: pointer;
+#left-pane {
+	padding: 5px;
+	width: 55%;
+	height: 100%; float : left;
+	border-right-color: gray;
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: gray;
+	float: left;
 }
 
-a.button:active, input[type="submit"]:hover {
-    background-color: #8d3708;
+#search {
+	
 }
 
-.button input, input[type="submit"] {
-    padding: 7px 45px 7px 10px;
+#search input[type="text"] {
+	font: 13px Helvetica, arial, freesans, clean, sans-serif;
+	background: url(../images/search-zoom-icon.png) no-repeat 7px 11px;
+	border: #aaa 1px solid;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #888888;
+	width: 435px;
+	padding: 8px 15px 8px 25px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px 4px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	outline: none;
+}
+
+#right-pane {
+	padding-top: 5px;
+	float: right;
+	width: 42%;
+	float: right;
+}
+
+h2 {
+	font: bold 14px Helvetica, arial, freesans, clean, sans-serif;
+}
+
+ul.product-list {
+	margin: 0 0 10px;
+	padding: 0;
+	float: left;
+	clear: both;
+}
+
+ul.product-list li {
+	margin: 0;
+	padding: 0 20px 20px 0;
+	width: 104px;
+	height: 152px;
+	float: left;
+	position: relative;
+}
+
+ul.product-list li.last {
+	padding: 0 0 20px 0;
+	width: 104px;
+}
+
+ul.product-list li p.product-number {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 20px;
+	right: 25px;
+	z-index: 1;
+	font-size: 1.6em;
+	line-height: 13px;
+}
+
+ul.product-list li.last p.product-number {
+	right: 0;
+}
+
+ul.product-list li product.product-view {
+	margin: 0;
+	padding: 0;
+	width: 102px;
+	height: 152px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	-moz-border-radius-bottomright: 45px;
+	-webkit-border-bottom-right-radius: 45px;
+	background: #fcfcfc;
+	border: 1px solid #ddd;
+}
+
+ul.product-list li product.product-view header {
+	padding: 0 5px;
+	padding-top: 2px;
+	float: left;
+	clear: both;
+	width: 92px;
+	height: 19px;
+	overflow: hidden;
+	background: #ddd;
+}
+
+h1.product-header {
+	font-family: Calibri,Arial,Helvetica,sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+ul.product-list li img {
+	margin: 0;
+	padding: 0;
+	width: 102px;
+	height: 85px;
+	float: left;
+	clear: both;
+	border-bottom: 1px solid #ddd;
+}
+
+div.product-details {
+	margin: 0;
+	padding: 2px 0 0 5px;
+	width: 97px;
+	height: auto;
+	float: left;
+	clear: both;
+	font-size: 0.9em;
+}
+
+div.product-details dt {
+	margin: 0;
+	padding: 0;
+	float: left;
+	font-size: 0.9em;
+	color: #888;
+}
+
+div.product-details dd {
+	margin: 0 0 2px;
+	padding: 0 2px;
+	float: left;
+	font-size: 0.9em;
+}
+
+.clear {
+	clear: both
 }

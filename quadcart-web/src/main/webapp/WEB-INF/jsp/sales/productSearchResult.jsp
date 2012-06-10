@@ -11,7 +11,8 @@
 			</div>
 			<div class="product-details">
 				<dl>
-					<dd>${ product.manufacturer.name}</dd>
+					<dt>Mfg:</dt>
+					<dd>${product.manufacturer.name}</dd>
 				</dl>
 				<dl>
 					<dt>Price:</dt>

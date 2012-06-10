@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+@Transactional( readOnly = true )
 @Component
 public class ProductBOImpl implements ProductBO {
 
@@ -19,15 +20,13 @@ public class ProductBOImpl implements ProductBO {
         this.productRepository = productRepository;
     }
 
-    @Transactional( readOnly = true )
     @Override
     public List<Product> getProducts() {
         return productRepository.findAll();
     }
-    
-    @Transactional( readOnly = true )
+
     @Override
-    public List<Product> searchProducts( String queryText ){
+    public List<Product> searchProducts( final String queryText ) {
         return productRepository.searchByDescription( queryText );
     }
 

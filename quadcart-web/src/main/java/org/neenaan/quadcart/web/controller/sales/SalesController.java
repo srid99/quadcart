@@ -26,14 +26,15 @@ public class SalesController {
 
     @RequestMapping( value = "/sales/new", method = RequestMethod.GET )
     public void listProducts( final Model model ) {
-        LOG.trace( "List the product In DB" +productBO.getProducts() );
+        final List<Product> products = productBO.getProducts();
+        LOG.trace( "List of products found {}", products );
     }
-    
+
     @RequestMapping( value = "/sales/searchproduct", method = RequestMethod.GET )
-    public void searchProducts( final Model model ,@RequestParam String q) {
-        LOG.debug( "Search Product for Query String:"+q );
-        List<Product> matchedProducts=productBO.searchProducts( "%"+q+"%" );
-        LOG.debug( "List the product details Searched"+matchedProducts );
+    public void searchProducts( final Model model , @RequestParam final String searchQuery ) {
+        LOG.trace( "Search products for given query string [ {} ]", searchQuery );
+        final List<Product> matchedProducts = productBO.searchProducts( "%" + searchQuery + "%" );
+        LOG.debug( "Total of {} products found for the given query", matchedProducts.size() );
         model.addAttribute( "searchResult", matchedProducts );
     }
 

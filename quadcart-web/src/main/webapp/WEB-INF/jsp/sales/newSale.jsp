@@ -1,10 +1,9 @@
 <%@ include file="/WEB-INF/jsp/common/tagLibs.jsp"%>
-<script src="<c:url value="/statics/js/sales/newSale.js"/>" type="text/javascript" ></script>
 <div id="outer-wrapper">
 	<div id="left-pane" class="clearfix">
 
 		<form method="get" action="#" id="search">
-			<input name="q" type="text" size="40"  id="searchbox"/>
+			<input name="q" type="text" size="40" placeholder="Search products..." id="searchbox" autocomplete="off" />
 		</form>
 
 		<br/>

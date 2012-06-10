@@ -1,4 +1,4 @@
-package org.neenaan.quadcart.data.jpa.repository;
+package org.neenaan.quadcart.data.repository;
 
 import java.util.List;
 

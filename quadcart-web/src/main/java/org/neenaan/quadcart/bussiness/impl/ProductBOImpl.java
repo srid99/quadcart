@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.neenaan.quadcart.bussiness.ProductBO;
 import org.neenaan.quadcart.data.domain.Product;
-import org.neenaan.quadcart.data.jpa.repository.ProductRepository;
+import org.neenaan.quadcart.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

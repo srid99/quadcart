@@ -11,13 +11,8 @@
                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<mvc:annotation-driven />
-	<mvc:view-controller path="/index.html" />
-
-	<!-- Locale resolver for Internationalization of messages -->
-	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
-		<property name="defaultLocale" value="en" />
-	</bean>
+	<mvc:resources mapping="/statics/**" location="/statics/" />
+	<mvc:view-controller path="/" view-name="sales/new" />
 
 	<!-- Tiles Configuration -->
 	<bean id="tilesConfigurer"
@@ -35,6 +30,12 @@
 		<property name="requestContextAttribute" value="requestContext" />
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean>
+
+	<!-- Locale resolver for Internationalization of messages -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+		<property name="defaultLocale" value="en" />
 	</bean>
 
 	<bean id="messageSource"

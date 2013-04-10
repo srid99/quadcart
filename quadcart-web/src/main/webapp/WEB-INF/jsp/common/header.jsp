@@ -7,13 +7,9 @@
 		<div id="menu">
 			<ul id="menu-links">
 				<li>
-					<a href="#">Sales</a>
-				</li>
-				<li>
-					<a href="#">Manage</a>
+					<a href="#">Home</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
-

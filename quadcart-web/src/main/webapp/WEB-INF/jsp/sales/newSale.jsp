@@ -13,9 +13,11 @@
 		</div>
 	</div>
 
+	<!-- 
 	<div id="right-pane">
 		<div id="cart">
 		<h2>Cart details</h2>
 		</div>
 	</div>
+	 -->
 </div>

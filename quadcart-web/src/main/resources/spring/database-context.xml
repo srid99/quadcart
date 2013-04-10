@@ -13,8 +13,8 @@
 	<jdbc:embedded-database id="dataSource" type="H2" />
 
 	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath:schema.sql" />
-		<jdbc:script location="classpath:import.sql" />
+		<jdbc:script location="classpath:/sql/schema.sql" />
+		<jdbc:script location="classpath:/sql/import.sql" />
 	</jdbc:initialize-database>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -25,7 +25,7 @@
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceXmlLocation" value="classpath*:persistence.xml" />
+		<property name="persistenceXmlLocation" value="classpath*:/persistence/persistence.xml" />
 		<property name="persistenceUnitName" value="quadcart-jpa" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">

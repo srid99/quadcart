@@ -30,7 +30,7 @@ public class SalesController {
         LOG.trace( "List of products found {}", products );
     }
 
-    @RequestMapping( value = "**/sales/searchproduct", method = RequestMethod.GET )
+    @RequestMapping( value = "/sales/searchproduct", method = RequestMethod.GET )
     public void searchProducts( final Model model , @RequestParam( "q" ) final String searchQuery ) {
         LOG.trace( "Search products for given query string [ {} ]", searchQuery );
         final List<Product> matchedProducts = productBO.searchProducts( "%" + searchQuery + "%" );

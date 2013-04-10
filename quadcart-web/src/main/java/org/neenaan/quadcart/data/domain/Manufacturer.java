@@ -38,5 +38,4 @@ public class Manufacturer {
     public String toString() {
         return "Manufacturer{ id: " + manufacturerId + ", name: " + name + "}";
     }
-
 }

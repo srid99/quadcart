@@ -37,5 +37,4 @@ public class SalesController {
         LOG.debug( "Total of {} products found for the given query", matchedProducts.size() );
         model.addAttribute( "searchResult", matchedProducts );
     }
-
 }

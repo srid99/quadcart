@@ -2,7 +2,7 @@
 <ul class="product-list">
 	<c:choose>
 	  <c:when test="${empty searchResult}">
-	  	<li class="products-empty">No products found.</li>
+	  	<li class="products-empty"><spring:message code="no.products.found" /></li>
 	  </c:when>
 	  <c:otherwise>
 		<c:forEach items="${searchResult}" var="product" varStatus="status">
@@ -18,11 +18,11 @@
 					</div>
 					<div class="product-details">
 						<dl>
-							<dt>Mfg: </dt>
+							<dt><spring:message code="manufacturer.abbrevation" />: </dt>
 							<dd>${product.manufacturer.name}</dd>
 						</dl>
 						<dl>
-							<dt>Price: </dt>
+							<dt><spring:message code="product.price" />: </dt>
 							<dd>${product.price}</dd>
 						</dl>
 					</div>

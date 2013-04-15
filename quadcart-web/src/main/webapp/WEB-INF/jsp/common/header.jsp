@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/common/tagLibs.jsp"%>
 <div class="container clearfix">
 	<a class="site-logo" href="#">
-		<img alt="QuadCart" class="quadcart-logo" src="<c:url value="/statics/images/logo.png"/>">
+		<img alt="<spring:message code="application.name" />" class="quadcart-logo" src="<c:url value="/statics/images/logo.png"/>">
 	</a>
 	<div id="menubox">
 		<div id="menu">

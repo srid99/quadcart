@@ -3,7 +3,7 @@
 	<div id="left-pane" class="clearfix">
 
 		<form method="get" action="#" id="search">
-			<input name="q" type="text" size="40" placeholder="Search products..." id="searchbox" autocomplete="off" />
+			<input name="q" type="text" size="40" placeholder="<spring:message code="search.products" />" id="searchbox" autocomplete="off" />
 		</form>
 
 		<br/>

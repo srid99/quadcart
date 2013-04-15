@@ -5,7 +5,6 @@
 	<parent>
 		<groupId>org.neenaan.quadcart</groupId>
 		<artifactId>quadcart-parent</artifactId>
-		<packaging>pom</packaging>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 

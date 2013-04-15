@@ -4,11 +4,11 @@ var Products = (function() {
 	handleSearchEvent = function(event) {
 		clearTimeout($.data(this, 'timer'));
 		if (event.keyCode == 13) {
-			searchProducts(true);
+			searchProducts();
 		} else {
 			$(this).data('timer', setTimeout(searchProducts, 500));
 		}
-	}, searchProducts = function(force) {
+	}, searchProducts = function() {
 		var searchText = searchBox.val();
 		if (searchText !== '') {
 			var queryString = '?q=' + searchText;

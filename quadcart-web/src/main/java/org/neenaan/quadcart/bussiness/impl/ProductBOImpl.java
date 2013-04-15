@@ -27,6 +27,6 @@ public class ProductBOImpl implements ProductBO {
 
     @Override
     public List<Product> searchProducts( final String description ) {
-        return productRepository.searchByDescription( description );
+        return productRepository.searchByDescription( "%" + description + "%" );
     }
 }

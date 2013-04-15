@@ -10,22 +10,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
-
 @Entity
-@NamedQuery(name = "Product.searchByDescription", query = "from Product p where p.description LIKE ?1" )
+@NamedQuery( name = "Product.searchByDescription", query = "from Product p where p.description LIKE ?1" )
 public class Product {
 
     @Id
     @Column( name = "product_id" )
     @GeneratedValue( strategy = GenerationType.AUTO )
     private Long productId;
-    
+
     @Column( name = "name" )
     private String name;
-    
+
     @Column( name = "description" )
     private String description;
-
 
     @ManyToOne
     @JoinColumn( nullable = true, name = "manufacturer_id" )
@@ -57,20 +55,20 @@ public class Product {
     public void setPrice( final BigDecimal price ) {
         this.price = price;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
-    public void setName( String name ){
+    public void setName( final String name ) {
         this.name = name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription( String description ){
+    public void setDescription( final String description ) {
         this.description = description;
     }
 

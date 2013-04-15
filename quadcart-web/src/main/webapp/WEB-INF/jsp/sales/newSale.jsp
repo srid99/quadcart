@@ -2,9 +2,9 @@
 <div id="outer-wrapper">
 	<div id="left-pane" class="clearfix">
 
-		<form method="get" action="#" id="search">
+		<div id="search">
 			<input name="q" type="text" size="40" placeholder="<spring:message code="search.products" />" id="searchbox" autocomplete="off" />
-		</form>
+		</div>
 
 		<br/>
 

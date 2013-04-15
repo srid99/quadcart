@@ -1,21 +1,30 @@
 $(document).ready(function() {
-	$("#searchbox").keypress(function(event) {
-		if (event.which == 13) {
-			var searchText = $(this).val();
-			var queryString = 'q=' + searchText;
-			if (searchText !== '') {
-				$.ajax({
-					type : "GET",
-					url : "sales/searchproduct",
-					data : queryString,
-					cache : false,
-					success : function(html) {
-						$("#products").html(html).show();
-					}
-				});
-			}
-			return false;
-		}
-		return true;
-	});
+    $("#searchbox").keyup(function(event) {
+    	Products.handleSearchEvent(event);
+    });
 });
+
+var Products = (function() {
+
+    return {
+    	handleSearchEvent: function(event) {
+            clearTimeout($.data(this, 'timer'));
+            if (event.keyCode == 13) {
+                Products.searchProducts(true);
+            } else {
+                $(this).data('timer', setTimeout(Products.searchProducts, 500));
+            }
+    	},
+        searchProducts: function(force) {
+            var searchText = $("#searchbox").val();
+            if (searchText !== '') {
+                var queryString = '?q=' + searchText;
+                $.get("sales/searchproduct" + queryString, function(products) {
+                    $("#products").html(products).show();
+                });
+            } else {
+                $("#products").empty();
+            }
+        }
+    };
+})();

@@ -6,7 +6,7 @@ $(document).ready(function() {
 			if (searchText !== '') {
 				$.ajax({
 					type : "GET",
-					url : "sales/searchproduct.html",
+					url : "sales/searchproduct",
 					data : queryString,
 					cache : false,
 					success : function(html) {
@@ -18,5 +18,4 @@ $(document).ready(function() {
 		}
 		return true;
 	});
-
 });

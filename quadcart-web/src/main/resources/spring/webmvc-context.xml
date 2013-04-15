@@ -11,7 +11,11 @@
                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<mvc:annotation-driven />
+	
+	<!-- Serve the static files -->
 	<mvc:resources mapping="/statics/**" location="/statics/" />
+
+	<!-- By default load sales/new view -->
 	<mvc:view-controller path="/" view-name="sales/new" />
 
 	<!-- Tiles Configuration -->

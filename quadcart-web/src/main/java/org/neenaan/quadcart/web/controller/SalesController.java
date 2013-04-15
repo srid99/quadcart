@@ -24,7 +24,7 @@ public class SalesController {
         this.productBO = productBO;
     }
 
-    @RequestMapping( value = "/sales/searchproduct", method = RequestMethod.GET )
+    @RequestMapping( value = "/**/searchproduct", method = RequestMethod.GET )
     public void searchProducts( final Model model , @RequestParam( "q" ) final String searchQuery ) {
         LOG.trace( "Search products for given query string [ {} ]", searchQuery );
 

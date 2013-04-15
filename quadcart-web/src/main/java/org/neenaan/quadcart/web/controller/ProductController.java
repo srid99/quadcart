@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class SalesController {
+public class ProductController {
 
-    private static final Logger LOG = LoggerFactory.getLogger( SalesController.class );
+    private static final Logger LOG = LoggerFactory.getLogger( ProductController.class );
 
     private final ProductBO productBO;
 
     @Autowired
-    public SalesController(final ProductBO productBO) {
+    public ProductController(final ProductBO productBO) {
         this.productBO = productBO;
     }
 

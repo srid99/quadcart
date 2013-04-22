@@ -1,12 +1,12 @@
 var Products = (function() {
-	var searchBox, productsContainer;
+	var searchBox, productsContainer, searchKeyDelay = 200;
 
 	handleSearchEvent = function(event) {
 		clearTimeout($.data(this, 'timer'));
 		if (event.keyCode == 13) {
 			searchProducts();
 		} else {
-			$(this).data('timer', setTimeout(searchProducts, 500));
+			$(this).data('timer', setTimeout(searchProducts, searchKeyDelay));
 		}
 	}, searchProducts = function() {
 		var searchText = searchBox.val();

@@ -1,3 +1,7 @@
+html {
+	overflow-y: scroll;
+}
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video
 	{
 	margin: 0;
@@ -136,6 +140,10 @@ a:active {
 	outline: none;
 }
 
+h2 {
+	font: bold 14px Helvetica, arial, freesans, clean, sans-serif;
+}
+
 #outer-wrapper {
 	padding-top: 10px;
 	height: 550px;
@@ -143,23 +151,13 @@ a:active {
 
 #left-pane {
 	padding: 5px;
-	width: 100%;
+	width: 58%;
 	height: 100%;
 	float: left;
 }
 
-#search {
-	
-}
-
-#search input[type="text"] {
-	font: 13px Helvetica, arial, freesans, clean, sans-serif;
-	background: url(../images/search-zoom-icon.png) no-repeat 7px 11px;
+input[type="text"] {
 	border: #aaa 1px solid;
-	font-family: Tahoma, Geneva, sans-serif;
-	color: #888888;
-	width: 435px;
-	padding: 8px 15px 8px 25px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px 4px;
@@ -167,17 +165,15 @@ a:active {
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
 	outline: none;
+	color: #888888;
 }
 
-#right-pane {
-	padding-top: 5px;
-	float: right;
-	width: 42%;
-	float: right;
-}
-
-h2 {
-	font: bold 14px Helvetica, arial, freesans, clean, sans-serif;
+#search input[type="text"] {
+	font: 13px Helvetica, arial, freesans, clean, sans-serif;
+	background: url(../images/search-zoom-icon.png) no-repeat 7px 11px;
+	font-family: Tahoma, Geneva, sans-serif;
+	width: 435px;
+	padding: 8px 15px 8px 25px;
 }
 
 ul.product-list {
@@ -251,7 +247,7 @@ ul.product-list li product.product-view header {
 }
 
 h1.product-header {
-	font-family: Calibri,Arial,Helvetica,sans-serif;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
 }
@@ -292,4 +288,55 @@ div.product-details dd {
 
 .clear {
 	clear: both
+}
+
+#right-pane {
+	margin-top: 5px;
+	float: right;
+	border: 1px dashed #ddd;
+	width: 40%;
+	float: right;
+	height: 100%;
+	color: #666;
+}
+
+#cart-details h2 {
+	padding: 10px;
+	background-color: #eee;
+}
+
+#product-details {
+	font-size: 13px;
+	margin: 5px 0px 5px 10px;
+}
+
+#product-details div {
+	padding-top: 5px;
+	clear: both;
+}
+
+#product-details .header {
+	font-weight: bold;
+	border-bottom: 1px;
+}
+
+#product-details id, #product-details name, #product-details price, #product-details quantity, #product-details total {
+	float: left;
+	width: 70px;
+}
+
+#product-details id {
+	width: 30px;
+}
+
+#product-details name {
+	width: 115px;
+}
+
+#product-details total {
+}
+
+quantity input[type="text"] {
+	width: 35px;
+	height: 15px;
 }

@@ -9,6 +9,8 @@
 		<br/>
 
 		<div id="products">
+			<ul class="product-list">
+			</ul>
 		</div>
 	</div>
 
@@ -23,14 +25,10 @@
 					<quantity>Quantity</quantity>
 					<total>Total</total>
 				</div>
-<!-- 				<div>
-					<id>121</id>
-					<name>MRF</name>
-					<price>200.00</price>
-					<quantity><input type="text" maxlength="4" value="1" /></quantity>
-					<total>600.00</total>
-				</div>
- -->			</div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<%@ include file="/WEB-INF/jsp/sales/templates.jsp" %>
+

@@ -11,6 +11,7 @@ Technologies/framework used:
 2. Spring MVC with JSP and Tiles
 3. Spring data with Hibernate as JPA adaptor
 4. JQuery used for client side DOM and AJAX operations
-6. Logback for logging
-5. Maven as build tool
-6. Selenium for integration testing
+5. Underscore used for client side templating
+6. Maven as build tool
+7. Selenium for integration testing
+8. Logback for logging

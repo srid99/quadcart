@@ -1,13 +1,11 @@
 <script type="text/template" id="product-details-template">
 	<li>
-		<product class="product-view">
+		<product class="product-view" data-id="{{ id }}" data-name="{{ name }}" data-price="{{ price }}">
 			<header>
 				<h1 class="product-header"># {{ id }}. {{ name }}</h1>
 			</header>
 			<div>
-				<a href="#" title="Product details">
-					<img src="<c:url value="/statics/images/product-image.png" />" alt="product details.">
-				</a>
+				<img src="<c:url value="/statics/images/product-image.png" />" alt="product details.">
 			</div>
 			<div class="product-details">
 				<dl>

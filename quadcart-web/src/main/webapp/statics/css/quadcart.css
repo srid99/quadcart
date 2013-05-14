@@ -235,6 +235,10 @@ ul.product-list li product.product-view {
 	border: 1px solid #ddd;
 }
 
+ul.product-list li product.product-view:hover {
+	cursor: pointer;
+}
+
 ul.product-list li product.product-view header {
 	padding: 0 5px;
 	padding-top: 2px;

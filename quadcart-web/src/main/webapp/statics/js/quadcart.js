@@ -3,8 +3,8 @@ _.templateSettings = {
 };
 
 var Products = (function() {
-    var searchBox, productsContainer, searchKeyDelay = 200, productDetailsTemplate,
-        productDetailsEmptyTemplate, productCartTemplate;
+    var searchBox, productsContainer, searchKeyDelay = 200,
+        productDetailsTemplate, productDetailsEmptyTemplate, productCartTemplate;
 
     handleSearchEvent = function(event) {
         clearTimeout($.data(this, 'timer'));
@@ -35,13 +35,13 @@ var Products = (function() {
         }
 
         productsContainer.html(productDetailsContent).show();
-    }, renderProductCartDetails = function() {
+    }, addProductToCart = function(product) {
         var data = {
-            id: '1',
-            name: 'xyz',
-            price: '100.00',
+            id: product.data('id'),
+            name: product.data('name'),
+            price: product.data('price'),
             quantity: '1',
-            total: '100.00'
+            total: product.data('price')
         };
         var result = productCartTemplate(data);
         $('#product-details').append(result);
@@ -50,7 +50,9 @@ var Products = (function() {
     return {
         init: function() {
             searchBox = $('#searchbox');
+
             productsContainer = $('#products .product-list');
+
             productCartTemplate = _.template($('#product-cart-template').html());
             productDetailsTemplate = _.template($('#product-details-template').html());
             productDetailsEmptyTemplate = $('#product-empty-template').html();
@@ -58,6 +60,10 @@ var Products = (function() {
         bindEvents: function() {
             searchBox.keyup(function(event) {
                 handleSearchEvent(event);
+            });
+
+            $('#products ul').on('click', 'product', function() {
+                addProductToCart($(this));
             });
         }
     };

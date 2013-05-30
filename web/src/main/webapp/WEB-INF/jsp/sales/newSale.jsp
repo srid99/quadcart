@@ -21,9 +21,9 @@
 				<div class="header">
 					<id>Id</id>				
 					<name>Product name</name>
-					<price>Price</price>
+					<price>Price ($)</price>
 					<quantity>Quantity</quantity>
-					<total>Total</total>
+					<total>Total ($)</total>
 				</div>
 			</div>
 		</div>

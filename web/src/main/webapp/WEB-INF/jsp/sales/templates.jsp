@@ -27,7 +27,7 @@
 </script>
 
 <script type="text/template" id="product-cart-template">
-	<div>
+	<div id="cart_{{ id }}">
 		<id>{{ id }}</id>
 		<name>{{ name }}</name>
 		<price>{{ price }}</price>

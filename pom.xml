@@ -6,7 +6,7 @@
 	<packaging>pom</packaging>
 	<version>0.1-SNAPSHOT</version>
 	<name>quadcart</name>
-	<description>Quardcart a simple cart application built in java.</description>
+	<description>Quardcart a simple cart application built</description>
 
 	<profiles>
 		<profile>
@@ -15,13 +15,13 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<module>quadcart-web</module>
+				<module>web</module>
 			</modules>
 		</profile>
 		<profile>
 			<id>selenium</id>
 			<modules>
-				<module>quadcart-selenium</module>
+				<module>selenium</module>
 			</modules>
 		</profile>
 	</profiles>

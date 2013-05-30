@@ -56,6 +56,8 @@ var Products = (function() {
             productCartTemplate = _.template($('#product-cart-template').html());
             productDetailsTemplate = _.template($('#product-details-template').html());
             productDetailsEmptyTemplate = $('#product-empty-template').html();
+
+            return this;
         },
         bindEvents: function() {
             searchBox.keyup(function(event) {
@@ -65,11 +67,12 @@ var Products = (function() {
             $('#products ul').on('click', 'product', function() {
                 addProductToCart($(this));
             });
+
+            return this;
         }
     };
 })();
 
 $(document).ready(function() {
-    Products.init();
-    Products.bindEvents();
+    Products.init().bindEvents();
 });

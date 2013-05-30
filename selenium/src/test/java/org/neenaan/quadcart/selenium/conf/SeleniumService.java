@@ -25,18 +25,20 @@ public class SeleniumService {
     }
 
     public void start() {
-        if ( selenium == null ) {
-            final Properties properties = loadSeleniumConfigProperties();
-
-            url = properties.getProperty( "application.url" );
-            timeout = properties.getProperty( "selenium.actions.to.complete.timeout" );
-
-            webDriver = new FirefoxDriver();
-            selenium = new WebDriverBackedSelenium( webDriver , url );
-
-            selenium.setTimeout( timeout );
-            selenium.open( url );
+        if ( selenium != null ) {
+            return;
         }
+
+        final Properties properties = loadSeleniumConfigProperties();
+
+        url = properties.getProperty( "application.url" );
+        timeout = properties.getProperty( "selenium.actions.to.complete.timeout" );
+
+        webDriver = new FirefoxDriver();
+        selenium = new WebDriverBackedSelenium( webDriver , url );
+
+        selenium.setTimeout( timeout );
+        selenium.open( url );
     }
 
     private Properties loadSeleniumConfigProperties() {

@@ -17,6 +17,7 @@
 		<hibernate.version>3.5.6-Final</hibernate.version>
 		<tiles.version>2.1.2</tiles.version>
 	</properties>
+	
 	<dependencies>
 
 		<!-- Spring dependencies -->

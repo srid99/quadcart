@@ -1,24 +1,21 @@
 package org.neenaan.quadcart.selenium.health_check;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-import org.neenaan.quadcart.selenium.conf.SeleniumTest;
-import org.neenaan.quadcart.selenium.conf.SeleniumTestCase;
+import org.neenaan.quadcart.selenium.conf.SeleniumBaseTest;
 
-public class HealthCheckTest extends SeleniumTestCase {
+import com.thoughtworks.selenium.Selenium;
 
-    @Test
-    @SeleniumTest( "Health check for quadcart application" )
-    public void testApplicationLoaded() {
-        open( "/" );
-        assertContent( "Hello World!" );
-    }
+public class HealthCheckTest extends SeleniumBaseTest {
 
     @Test
-    @SeleniumTest( "Sales page loaded" )
-    public void testSalesPage() {
-        open( "/sales/new.html" );
-        assertTitle( "QuadCart" );
-        assertContent( "Product Results" );
-    }
+    public void testApplicationStartedWithoutError() {
+        final Selenium selenium = selenium();
 
+        assertThat( selenium.getTitle(), is( "QuadCart" ) );
+        assertTrue( selenium.isElementPresent( "searchbox" ) );
+    }
 }

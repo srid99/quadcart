@@ -1,5 +1,8 @@
 package org.neenaan.quadcart.selenium.integration_test;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -9,9 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.thoughtworks.selenium.Selenium;
-
-import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.*;
 
 public class SearchProductsAndAddToCartTest extends SeleniumBaseTest {
 
@@ -61,7 +61,7 @@ public class SearchProductsAndAddToCartTest extends SeleniumBaseTest {
     }
 
     @Test
-    public void testAddingVariousProductToCart() {
+    public void testAddingVariousProductsToCart() {
         final WebDriver driver = driver();
 
         final List<WebElement> products = driver.findElements( By.tagName( "product" ) );

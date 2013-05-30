@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverBackedSelenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.google.common.base.Preconditions;
 import com.thoughtworks.selenium.Selenium;
 
 public class SeleniumService {
@@ -16,6 +17,7 @@ public class SeleniumService {
 
     private WebDriver webDriver;
     private Selenium selenium;
+
     private String url;
     private String timeout;
 
@@ -24,18 +26,20 @@ public class SeleniumService {
 
     public void start() {
         if ( selenium == null ) {
-            final Properties properties = loadConfigProperties();
+            final Properties properties = loadSeleniumConfigProperties();
+
             url = properties.getProperty( "application.url" );
             timeout = properties.getProperty( "selenium.actions.to.complete.timeout" );
 
             webDriver = new FirefoxDriver();
             selenium = new WebDriverBackedSelenium( webDriver , url );
+
             selenium.setTimeout( timeout );
             selenium.open( url );
         }
     }
 
-    private Properties loadConfigProperties() {
+    private Properties loadSeleniumConfigProperties() {
         final Properties properties = new Properties();
 
         try {
@@ -43,25 +47,27 @@ public class SeleniumService {
             properties.load( in );
         }
         catch ( final IOException e ) {
-            throw new IllegalStateException( "Resource not able to load" , e );
+            throw new IllegalStateException( "Not able to load the resource" , e );
         }
 
         return properties;
     }
 
     public Selenium getSelenium() {
-        if ( selenium == null ) {
-            throw new IllegalStateException( "Make sure service setup is done" );
-        }
+        Preconditions.checkNotNull( selenium, "Make sure selenium service is started" );
 
         return selenium;
     }
 
     public WebDriver getWebDriver() {
+        Preconditions.checkNotNull( webDriver, "Make sure selenium service is started" );
+
         return webDriver;
     }
 
     public void stop() {
+        Preconditions.checkNotNull( selenium, "No selenium service is running to stop" );
+
         selenium.close();
         selenium = null;
         webDriver = null;

@@ -4,6 +4,7 @@ import static org.neenaan.quadcart.selenium.conf.SeleniumService.SELENIUM_SERVIC
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.WebDriver;
 
 import com.thoughtworks.selenium.Selenium;
 
@@ -15,7 +16,11 @@ public abstract class SeleniumBaseTest {
     }
 
     public Selenium selenium() {
-        return SELENIUM_SERVICE.getSeleniumWithFirefoxDriver();
+        return SELENIUM_SERVICE.getSelenium();
+    }
+
+    public WebDriver driver() {
+        return SELENIUM_SERVICE.getWebDriver();
     }
 
     @AfterClass

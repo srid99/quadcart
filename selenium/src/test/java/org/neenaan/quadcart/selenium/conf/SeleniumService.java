@@ -14,8 +14,10 @@ public class SeleniumService {
 
     public static final SeleniumService SELENIUM_SERVICE = new SeleniumService();
 
+    private WebDriver webDriver;
     private Selenium selenium;
     private String url;
+    private String timeout;
 
     private SeleniumService() {
     }
@@ -24,9 +26,11 @@ public class SeleniumService {
         if ( selenium == null ) {
             final Properties properties = loadConfigProperties();
             url = properties.getProperty( "application.url" );
+            timeout = properties.getProperty( "selenium.actions.to.complete.timeout" );
 
-            final WebDriver driver = new FirefoxDriver();
-            selenium = new WebDriverBackedSelenium( driver , url );
+            webDriver = new FirefoxDriver();
+            selenium = new WebDriverBackedSelenium( webDriver , url );
+            selenium.setTimeout( timeout );
             selenium.open( url );
         }
     }
@@ -45,7 +49,7 @@ public class SeleniumService {
         return properties;
     }
 
-    public Selenium getSeleniumWithFirefoxDriver() {
+    public Selenium getSelenium() {
         if ( selenium == null ) {
             throw new IllegalStateException( "Make sure service setup is done" );
         }
@@ -53,8 +57,13 @@ public class SeleniumService {
         return selenium;
     }
 
+    public WebDriver getWebDriver() {
+        return webDriver;
+    }
+
     public void stop() {
         selenium.close();
         selenium = null;
+        webDriver = null;
     }
 }

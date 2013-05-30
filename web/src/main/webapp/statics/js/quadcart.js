@@ -120,9 +120,8 @@ var Cart = (function() {
     productAlreadyExistInCart = function(productId) {
         var alreadyAddedToCart = false;
 
-        _.each(productsAddedToCart, function(productInCart) {
-            alreadyAddedToCart = productId === productInCart.id;
-            return !alreadyAddedToCart;
+        productsAddedToCart.every(function(productInCart) {
+            return !(alreadyAddedToCart = productId === productInCart.id);
         });
 
         return alreadyAddedToCart;

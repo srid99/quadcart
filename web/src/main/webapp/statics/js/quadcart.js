@@ -88,6 +88,9 @@ var Cart = (function() {
     },
 
     updateExistingProductInCart = function(productId) {
+
+        console.log(productId);
+
         var $selectedProduct = $('#cart_' + productId);
         
         var $quantity = $selectedProduct.find('input[type=text]');
@@ -124,7 +127,7 @@ var Cart = (function() {
     emptyCart = function() {
         ProductCollection.clear();
         toggleClearCartButton();
-        $('#product-details div:gt(0)').empty();
+        $('#product-details div:gt(0)').remove();
     },
 
     toggleClearCartButton = function() {

@@ -16,7 +16,10 @@
 
 	<div id="right-pane">
 		<div id="cart-details">
-			<h2>Cart details</h2>
+			<h2>
+				Cart details 
+				<input class="clear-cart hidden right" value="Clear items" type="button" />
+			</h2>
 			<div id="product-details">
 				<div class="header">
 					<id>Id</id>				

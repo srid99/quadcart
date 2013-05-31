@@ -294,6 +294,15 @@ div.product-details dd {
 	clear: both
 }
 
+.right {
+	float: right;
+}
+
+.clear-cart {
+	vertical-align: middle;
+	margin-top: -5px;
+}
+
 #right-pane {
 	margin-top: 5px;
 	float: right;
@@ -343,4 +352,8 @@ div.product-details dd {
 quantity input[type="text"] {
 	width: 35px;
 	height: 15px;
+}
+
+.hidden {
+	display: none;
 }

@@ -89,8 +89,6 @@ var Cart = (function() {
 
     updateExistingProductInCart = function(productId) {
 
-        console.log(productId);
-
         var $selectedProduct = $('#cart_' + productId);
         
         var $quantity = $selectedProduct.find('input[type=text]');

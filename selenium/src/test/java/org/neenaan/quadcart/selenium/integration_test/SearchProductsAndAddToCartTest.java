@@ -77,4 +77,32 @@ public class SearchProductsAndAddToCartTest extends SeleniumBaseTest {
         assertThat( cart.findElements( By.tagName( "total" ) ).get( 2 ).getText(), is( "6000" ) );
         assertThat( cart.findElements( By.tagName( "input" ) ).get( 1 ).getAttribute( "value" ), is( "2" ) );
     }
+
+    @Test
+    public void testToClearTheProductsFromCart() {
+        final WebDriver driver = driver();
+
+        final WebElement cart = driver.findElement( By.id( "product-details" ) );
+
+        final WebElement products = driver.findElement( By.id( "cart-details" ) );
+        final WebElement clear = products.findElement( By.tagName( "input" ) );
+
+        clear.click();
+
+        assertThat( cart.findElements( By.tagName( "div" ) ).size(), is( 1 ) );
+    }
+
+    @Test
+    public void testNoProductsFound() {
+        final Selenium selenium = selenium();
+        final WebDriver driver = driver();
+
+        selenium.type( "searchbox", "aa" );
+        selenium.keyPress( "searchbox", "\\13" );
+        selenium.waitForPageToLoad( "2000" );
+
+        final WebElement products = driver.findElement( By.id( "products" ) );
+
+        assertThat( products.findElement( By.tagName( "li" ) ).getText(), is( "No products found." ) );
+    }
 }

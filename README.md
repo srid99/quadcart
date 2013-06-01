@@ -34,3 +34,7 @@ If the server started sucessfuly then you must be able to access the application
 Use the below command to run the selenium suite. Make sure the application is up and running before you run the suite.
 
     $ mvn test -Pselenium
+
+### Demo
+
+Too lazy to start the application ? Then see it in action here: [quadcart.srid.in](http://quadcart.srid.in)
